@@ -2074,6 +2074,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     userId: {
@@ -38384,42 +38390,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("nav", [
-      _c("section", [
-        _c("a", { staticStyle: { color: "white" }, attrs: { href: "/" } }, [
-          _vm._v("Inferno CMS")
-        ]),
-        _vm._v("   ||   \n    "),
-        _c(
-          "a",
-          {
-            staticStyle: { color: "white" },
-            attrs: { href: "/admin/dashboard" }
-          },
-          [_vm._v("HOME")]
-        ),
-        _vm._v(" "),
-        _c("hr"),
-        _vm._v(" "),
-        _c("ul", [
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "create", params: { userId: _vm.userId } }
-                  }
-                },
-                [_vm._v("NEW POST ")]
-              )
-            ],
-            1
-          )
-        ])
-      ])
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("article", [
       _c("header", [
@@ -38442,7 +38413,31 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", [
+      _c("section", [
+        _c("a", { staticStyle: { color: "white" }, attrs: { href: "/" } }, [
+          _vm._v("Inferno CMS")
+        ]),
+        _vm._v("   ||   \n    "),
+        _c(
+          "a",
+          {
+            staticStyle: { color: "white" },
+            attrs: { href: "/admin/dashboard" }
+          },
+          [_vm._v("HOME")]
+        ),
+        _vm._v(" "),
+        _c("hr")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

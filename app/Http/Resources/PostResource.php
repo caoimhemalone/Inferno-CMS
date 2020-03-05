@@ -16,9 +16,12 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'body' => $this->body,
-            'image' => $this->image,
+            // 'title' => $this->title,
+            // 'body' => $this->body,
+            // 'image' => $this->image,
+            'h1' => $this->h1,
+            'intro' => $this->intro,
+            'timetable' => $this->timetable,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
         ];

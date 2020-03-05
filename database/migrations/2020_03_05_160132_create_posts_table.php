@@ -13,14 +13,23 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        // Schema::create('posts', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('user_id')->unsigned();
+        //     $table->string('title');
+        //     $table->text('body');
+        //     $table->binary('image')->nullable();
+        //     $table->timestamps();
+        // });
+
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('title');
-            $table->text('body');
-            $table->binary('image')->nullable();
-            $table->timestamps();
-        });
+                $table->increments('id');
+                $table->integer('user_id')->unsigned();
+                $table->string('h1');
+                $table->text('intro');
+                $table->text('timetable');
+                $table->timestamps();
+            });
     }
 
     /**
@@ -30,6 +39,7 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+         Schema::dropIfExists('posts');
+        //Schema::dropIfExists('inferno');
     }
 }

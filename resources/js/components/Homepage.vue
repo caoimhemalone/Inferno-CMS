@@ -6,9 +6,15 @@
     <a style="color: white" href="/">Inferno CMS</a> &nbsp; ||  &nbsp;
     <a style="color: white" href="/admin/dashboard">HOME</a>
     <hr>
-    <ul>
+    <!-- <ul>
        <li> <router-link :to="{ name: 'create', params: { userId } }">NEW POST </router-link></li>
-    </ul>
+       <li>Meta Data</li>
+       <li>Intro</li>
+       <li>Timetable</li>
+       <li>Prices</li>
+       <li>Written Testimonials</li>
+       <li>About Us</li>
+    </ul> -->
   </section>
 </nav>
 <article>
