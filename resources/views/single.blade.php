@@ -5,17 +5,16 @@
 <div class="row">
   <div class="col-lg-10 mx-auto">
     <br>
-    <!-- <h3 class="mt-4">{{ $post->title }} <span class="lead"> by <a href="#"> {{ $post->user->name }} </a></span> </h3> -->
-    <hr>
-    <!-- <p>Posted {{ $post->created_at->diffForHumans() }} </p> -->
-    <!-- <hr>
-    <img class="img-fluid rounded" src=" {!! !empty($post->image) ? '/uploads/posts/' . $post->image :  'http://placehold.it/750x300' !!} " alt=""> -->
-    <hr>
     <div>
-    <h3 class="mt-4">{{ $post->h1 }}
-    <!-- <p>{{ $post->body }} </p><hr> -->
-    <p>{{ $post->intro }} </p>
-    <p>{{ $post->timetable }} </p><hr>
+    <h3 class="mt-4">H1</h3>
+    <span>{{ $post->h1 }}</span>
+    <hr>
+    <h3 class="mt-4">Intro</h3>
+    <span>{{ $post->intro }} </span>
+    <hr>
+    <h3 class="mt-4">Timetable</h3>
+    <span>{{ $post->timetable }} </span>
+    <hr>
     <br>
 </div>
 @auth

@@ -10882,3 +10882,13 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  background-color: #202B33;
+  color: #738491;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-smoothing: antialiased;
+  overflow: hidden;
+}
+

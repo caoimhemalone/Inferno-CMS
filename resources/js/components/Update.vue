@@ -16,13 +16,13 @@
 
 
 <div class="form-group">
-  <!-- <input type="title" ref="title" class="form-control" id="title" placeholder="Enter title" required> -->
+  <span> H1 </span>
   <input ref="h1" class="form-control" id="h1" placeholder="Enter h1" required>
-</div>
-
-<div class="form-group">
-  <!-- <textarea class="form-control" ref="body" id="body" placeholder="Enter a body" rows="8" required></textarea> -->
+  <br>
+  <span> Intro </span>
   <textarea class="form-control" ref="intro" id="intro" placeholder="Enter an intro" rows="8" required></textarea>
+  <br>
+  <span> Timetable </span>
   <textarea class="form-control" ref="timetable" id="timetable" placeholder="Enter the timetable" rows="8" required></textarea>
 </div>
   <button type="submit" @click.prevent="update" class="btn btn-primary block">Submit</button>

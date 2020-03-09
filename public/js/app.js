@@ -1939,6 +1939,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     userId: {
@@ -1957,11 +1962,14 @@ __webpack_require__.r(__webpack_exports__);
     create: function create() {
       var _this = this;
 
-      var formData = new FormData();
-      formData.append("title", this.$refs.title.value);
-      formData.append("body", this.$refs.body.value);
-      formData.append("user_id", this.userId);
-      formData.append("image", this.$refs.image.files[0]);
+      var formData = new FormData(); // formData.append("title", this.$refs.title.value);
+      // formData.append("body", this.$refs.body.value);
+      // formData.append("user_id", this.userId);
+      // formData.append("image", this.$refs.image.files[0]);
+
+      formData.append("h1", this.$refs.h1.value);
+      formData.append("intro", this.$refs.intro.value);
+      formData.append("timetable", this.$refs.timetable.value);
       axios.post("/api/posts", formData).then(function (response) {
         _this.successful = true;
         _this.error = false;
@@ -1974,9 +1982,12 @@ __webpack_require__.r(__webpack_exports__);
             _this.error = true;
           }
         }
-      });
-      this.$refs.title.value = "";
-      this.$refs.body.value = "";
+      }); // this.$refs.title.value = "";
+      // this.$refs.body.value = "";
+
+      this.$refs.h1.value = "";
+      this.$refs.intro.value = "";
+      this.$refs.timetable.value = "";
     }
   }
 });
@@ -2129,6 +2140,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPosts();
@@ -2203,6 +2215,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.getPost();
@@ -2224,11 +2242,16 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var _this = this;
 
-      var title = this.$refs.title.value;
-      var body = this.$refs.body.value;
-      axios.put('/api/posts/' + this.postId, {
-        title: title,
-        body: body
+      // let title = this.$refs.title.value;
+      // let body = this.$refs.body.value;
+      var h1 = this.$refs.h1.value;
+      var intro = this.$refs.intro.value;
+      var timetable = this.$refs.timetable.value;
+      axios //.put('/api/posts/' + this.postId, { title, body })
+      .put('/api/posts/' + this.postId, {
+        h1: h1,
+        intro: intro,
+        timetable: timetable
       }).then(function (response) {
         _this.successful = true;
         _this.error = false;
@@ -2247,8 +2270,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get('/api/posts/' + this.postId).then(function (response) {
-        _this2.$refs.title.value = response.data.data.title;
-        _this2.$refs.body.value = response.data.data.body;
+        // this.$refs.title.value = response.data.data.title;
+        // this.$refs.body.value = response.data.data.body;
+        _this2.$refs.h1.value = response.data.data.h1;
+        _this2.$refs.intro.value = response.data.data.intro;
+        _this2.$refs.timetable.value = response.data.data.timetable;
       });
     }
   }
@@ -38292,21 +38318,21 @@ var render = function() {
         "div",
         { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
         [
-          _vm.errors.title
+          _vm.errors.h1
             ? _c("span", { staticClass: "label label-danger" }, [
-                _vm._v(" " + _vm._s(_vm.errors.title[0]) + " ")
+                _vm._v(" " + _vm._s(_vm.errors.h1[0]) + " ")
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.errors.body
+          _vm.errors.intro
             ? _c("span", { staticClass: "label label-danger" }, [
-                _vm._v(" " + _vm._s(_vm.errors.body[0]) + " ")
+                _vm._v(" " + _vm._s(_vm.errors.intro[0]) + " ")
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.errors.image
+          _vm.errors.timetable
             ? _c("span", { staticClass: "label label-danger" }, [
-                _vm._v(" " + _vm._s(_vm.errors.image[0]) + " ")
+                _vm._v(" " + _vm._s(_vm.errors.timetable[0]) + " ")
               ])
             : _vm._e()
         ]
@@ -38314,40 +38340,23 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _c("input", {
-          ref: "title",
+          ref: "h1",
           staticClass: "form-control",
-          attrs: {
-            type: "title",
-            id: "title",
-            placeholder: "Enter title",
-            required: ""
-          }
+          attrs: { id: "h1", placeholder: "Enter h1", required: "" }
         })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _c("textarea", {
-          ref: "body",
+          ref: "intro",
           staticClass: "form-control",
           attrs: {
-            id: "body",
-            placeholder: "Enter a body",
+            id: "intro",
+            placeholder: "Enter the intro",
             rows: "8",
             required: ""
           }
         })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "custom-file mb-3" }, [
-        _c("input", {
-          ref: "image",
-          staticClass: "custom-file-input",
-          attrs: { type: "file", name: "image", id: "image", required: "" }
-        }),
-        _vm._v(" "),
-        _c("label", { staticClass: "custom-file-label" }, [
-          _vm._v("Choose file...")
-        ])
       ]),
       _vm._v(" "),
       _c(
@@ -38468,7 +38477,7 @@ var render = function() {
           "p",
           { staticClass: "border p-3" },
           [
-            _vm._v("\n        " + _vm._s(post.title) + "\n        "),
+            _vm._v("\n        Inferno Website Content\n        "),
             _c(
               "router-link",
               {
@@ -38481,7 +38490,7 @@ var render = function() {
                     staticClass: "p-1 mx-3 float-right btn btn-light",
                     attrs: { type: "button" }
                   },
-                  [_vm._v(" Update ")]
+                  [_vm._v(" View & Update ")]
                 )
               ]
             ),
@@ -38583,40 +38592,60 @@ var render = function() {
         "div",
         { class: ["form-group m-1 p-3", _vm.error ? "alert-danger" : ""] },
         [
-          _vm.errors.title
+          _vm.errors.h1
             ? _c("span", { staticClass: "label label-danger" }, [
-                _vm._v(" " + _vm._s(_vm.errors.title[0]) + " ")
+                _vm._v(" " + _vm._s(_vm.errors.h1[0]) + " ")
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.errors.body
+          _vm.errors.intro
             ? _c("span", { staticClass: "label label-danger" }, [
-                _vm._v(" " + _vm._s(_vm.errors.body[0]) + " ")
+                _vm._v(" " + _vm._s(_vm.errors.intro[0]) + " ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.errors.timetable
+            ? _c("span", { staticClass: "label label-danger" }, [
+                _vm._v(" " + _vm._s(_vm.errors.timetable[0]) + " ")
               ])
             : _vm._e()
         ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
+        _c("span", [_vm._v(" H1 ")]),
+        _vm._v(" "),
         _c("input", {
-          ref: "title",
+          ref: "h1",
+          staticClass: "form-control",
+          attrs: { id: "h1", placeholder: "Enter h1", required: "" }
+        }),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" Intro ")]),
+        _vm._v(" "),
+        _c("textarea", {
+          ref: "intro",
           staticClass: "form-control",
           attrs: {
-            type: "title",
-            id: "title",
-            placeholder: "Enter title",
+            id: "intro",
+            placeholder: "Enter an intro",
+            rows: "8",
             required: ""
           }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
+        }),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("span", [_vm._v(" Timetable ")]),
+        _vm._v(" "),
         _c("textarea", {
-          ref: "body",
+          ref: "timetable",
           staticClass: "form-control",
           attrs: {
-            id: "body",
-            placeholder: "Enter a body",
+            id: "timetable",
+            placeholder: "Enter the timetable",
             rows: "8",
             required: ""
           }

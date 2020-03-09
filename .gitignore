@@ -10,3 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.gitsecret/keys/random_seed
+!*.secret
+database/seeds/UserTableSeeder.php
